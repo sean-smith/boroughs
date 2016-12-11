@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+  <h3>Place a Pin!</h3>
+  <div id="map"></div>
+  <script>   
+  var marker = null;
+  function addMarker(location, map) {
+    // marker.setMap(null);
+    marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  } 
+
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: {lat: 40.707438, lng: -74.006302}
+    });
+    google.maps.event.addListener(map, 'click', function(event) {
+      if (marker) {
+            marker.setMap(null);
+            marker = null;
+      }
+      addMarker(event.latLng, map);
+    });
+  }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy87-1SGf9_wc5i3cVUrT7V-xrBey8Ve0&callback=initMap">
+  </script>
+  </body>
+</html>
