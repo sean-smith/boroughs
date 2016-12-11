@@ -2,6 +2,14 @@
 
 var marker = null;
 var map = null;
+var infowindow = null;
+
+function openWindow(data) {
+	infowindow = new google.maps.InfoWindow({
+		content: data
+  	});
+	infowindow.open(map, marker);
+}
 
 function addMarker(location, map) {
 	marker = new google.maps.Marker({
@@ -10,6 +18,9 @@ function addMarker(location, map) {
 	});
 	document.getElementById('lat').value = location.lat();
 	document.getElementById('long').value = location.lng();
+	$.post( "get_borough", {'lat': location.lat(), 'long': location.lng()}, function( data ) {
+  		openWindow(data);
+	});
 }
 
 function initMap() {

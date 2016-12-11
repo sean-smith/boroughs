@@ -12,6 +12,8 @@ def index():
 def get_borough():
 	lat = float(request.form['lat'])
 	lng = float(request.form['long'])
+	print "lat = %f" % (lat)
+	print "long = %f" % (lng)
 	return borough(lat, lng)
 
 
@@ -23,7 +25,7 @@ def borough(lat, lng):
 			multipolygon = feature["geometry"]["coordinates"]
 			if in_multipolygon(lat, lng, multipolygon):
 				return feature["properties"]["BoroName"] + "<br>"
-	return "Not in a NYC Borough :("
+	return "Not in a NYC Borough"
 
 def x(lnglat):
 	return lnglat[0]
