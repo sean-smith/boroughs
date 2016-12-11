@@ -35,8 +35,9 @@ function initMap() {
 		}
 		addMarker(event.latLng, map);
 	});
+	load_geojson()
 }
 
 function load_geojson() {
-	map.data.loadGeoJson('nyc_boroughs.json');
+	map.data.loadGeoJson('static/nyc_boroughs.json');
 }
