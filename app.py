@@ -14,7 +14,8 @@ def get_borough():
 	lng = float(request.form['long'])
 	print "lat = %f" % (lat)
 	print "long = %f" % (lng)
-	return borough(lat, lng, 'static/nyc_boroughs.json')["BoroName"]
+	props = borough(lat, lng, 'static/nyc_census_tracts.json');
+	return "CT Code: %s<br>NTA Name: %s<br>Borough Name: %s" % (props['CTLabel'], props['NTAName'], props['BoroName'])
 
 
 def borough(lat, lng, path):
