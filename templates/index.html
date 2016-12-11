@@ -12,6 +12,13 @@
 				<label for="long">Longitude</label>
 				<input class="form-control" type='text' name='long' id='long' placeholder="42.348917" />
 			</div>
+			<label for="sel1">Select Map Data:</label>
+				<select class="form-control" id="data">
+        			<option value='static/nyc_boroughs.json'>Boroughs</option>
+        			<option value='static/nyc_census_blocks.json'>Census Blocks</option>
+			        <option value='static/nyc_census_tracts.json'>Census Tracts</option>
+			        <option value='static/boston.geojson'>Boston Neighborhoods</option>
+      			</select>
 			<div id="map"></div>
 			<input class="btn btn-primary" type='submit' name='submit' />
 	</form>
