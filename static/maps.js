@@ -40,4 +40,12 @@ function initMap() {
 
 function load_geojson() {
 	map.data.loadGeoJson('static/nyc_boroughs.json');
+	map.data.setStyle(function(feature) {
+		var num = feature.getProperty('BoroCode') - 1;
+		var colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+		return {
+			fillColor: colors[num],
+			strokeWeight: 1
+		};
+	});
 }
