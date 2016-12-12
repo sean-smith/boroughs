@@ -1,6 +1,7 @@
+all: run
 
-all:
-	export FLASK_APP=app.py
-	export FLASK_DEBUG=1
-	flask run -h 0.0.0.0
+run:
+	FLASK_APP=app.py FLASK_DEBUG=1 flask run -h 0.0.0.0
 
+clean:
+	-rm *.pyc 

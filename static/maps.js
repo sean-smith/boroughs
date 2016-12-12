@@ -64,19 +64,22 @@ function openWindow(data) {
 	infowindow.open(map, marker);
 }
 
-function addMarker(location, map) {
+function addMarker(loc, map) {
 	marker = new google.maps.Marker({
-		position: location,
+		position: loc,
 		map: map
 	});
-	document.getElementById('lat').value = location.lat();
-	document.getElementById('long').value = location.lng();
-	$.post( "get_borough", {'lat': location.lat(), 'long': location.lng()}, function( data ) {
+	document.getElementById('lat').value = loc.lat();
+	document.getElementById('long').value = loc.lng();
+	$.post( "get_borough", {'lat': loc.lat(), 'long': loc.lng()}, function( data ) {
   		openWindow(data);
 	});
 }
 
 function initMap() {
+	if (!place) {
+		place = nyc_boroughs;
+	}
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: place.zoom,
 		center: place.loc
