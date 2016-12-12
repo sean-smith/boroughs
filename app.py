@@ -18,6 +18,11 @@ def yellow():
 		matrix="data/yellow/borough-matrix.json", 
 		map="data/yellow/borough-map.json")
 
+@app.route('/all')
+def all():
+	return render_template('nta.html', 
+		matrix="data/nta/trip-matrix.json", 
+		map="data/nta/trip-map.json")
 
 @app.route('/get_borough', methods=['POST'])
 def get_borough():

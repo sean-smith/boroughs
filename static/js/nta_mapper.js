@@ -61,17 +61,17 @@ function chordRdr (matrix, mmap) {
       s = _.where(mmap, {id: i });
       t = _.where(mmap, {id: j });
       m.color = s[0].color;
-      m.sname = s[0].BoroName;
+      m.sname = s[0].NTAName;
       m.sdata = d.source.value;
       m.svalue = +d.source.value;
       m.stotal = _.reduce(matrix[i], function (k, n) { return k + n }, 0);
-      m.tname = t[0].BoroName;
+      m.tname = t[0].NTAName;
       m.tdata = d.target.value;
       m.tvalue = +d.target.value;
       m.ttotal = _.reduce(matrix[j], function (k, n) { return k + n }, 0);
     } else {
       g = _.where(mmap, {id: d.index });
-      m.gname = g[0].BoroName;
+      m.gname = g[0].NTAName;
       m.color = g[0].color;
       m.gvalue = d.value;
     }
