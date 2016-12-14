@@ -7,11 +7,11 @@ config:
 	python ~/viff/apps/generate-certificates.py	
 
 p3:
-	python point_in_poly.py player-3.ini --file player-3.json
+	python sum_matrix.py player-3.ini --file ../static/data/test1/trip-matrix.json
 p2:
-	python point_in_poly.py player-2.ini --file player-2.json
+	python sum_matrix.py player-2.ini --file ../static/data/test2/trip-matrix.json
 p1:
-	python point_in_poly.py player-1.ini --file player-1.json
+	python sum_matrix.py player-1.ini --file ../static/data/test3/trip-matrix.json
 
 
 clean:
